@@ -1,0 +1,4 @@
+﻿<validations>
+  <validation type="Required" property="Name" message="Name is required." />
+  <validation type="Required" property="Website" message="Website is required." />
+</validations>

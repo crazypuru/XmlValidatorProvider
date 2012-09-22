@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Host an event!";
+}
+
+@model XmlValidatorProvider.Models.Event
+
+<h2>Host an event!</h2>
+
+@using (Html.BeginForm())
+{
+  <div>
+
+    @Html.ValidationSummary()
+
+    <p>
+      @Html.LabelFor(m => m.Name)
+      @Html.TextBoxFor(m => m.Name)
+      @Html.ValidationMessageFor(m => m.Name)
+    </p>
+
+    <p>
+      @Html.LabelFor(m => m.Date)
+      @Html.TextBoxFor(m => m.Date)
+      @Html.ValidationMessageFor(m => m.Date)
+    </p>
+
+    <p>
+      @Html.LabelFor(m => m.Place)
+      @Html.TextBoxFor(m => m.Place)
+    </p>
+
+    <input type="submit" value="Host" />
+  </div>
+}
+
+<script src="~/Scripts/jquery-1.4.4.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script>
+  jQuery.validator.addMethod('futuredate', function (value, element, params) {
+    if (!/Invalid|NaN/.test(new Date(value))) {
+      return new Date(value) > new Date();
+    }
+    return isNaN(value) && isNaN($(params).val()) || (parseFloat(value) > parseFloat($(params).val()));
+  }, '');
+
+  jQuery.validator.unobtrusive.adapters.add('futuredate', {}, function (options) {
+    options.rules['futuredate'] = true;
+    options.messages['futuredate'] = options.message;
+  });
+</script>
