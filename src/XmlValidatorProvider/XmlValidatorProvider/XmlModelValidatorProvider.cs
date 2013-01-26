@@ -32,6 +32,7 @@ namespace XmlValidatorProvider
 
       // custom ValidationAttribute that validates a date for future value.
       _validatorTypes.Add("FutureAttribute", typeof(FutureAttribute));
+      _validatorTypes.Add("EventModelValidationAttribute", typeof(EventModelValidationAttribute));
     }
 
     #region Stolen from DataAnnotationsModelValidatorProvider
