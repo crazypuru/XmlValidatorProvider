@@ -1,5 +1,5 @@
 ﻿<validations>
   <validation type="Required" property="Name" message="Name is required." />
   <validation type="StringLength" property="Name" arg-int="50" message="The length of Name should not exceed 50 characters." />
-  <validation type="Future" property="Event" message="The Date should be a future date." />
+  <validation type="Future" property="Date" message="The Date should be a future date." />
 </validations>
